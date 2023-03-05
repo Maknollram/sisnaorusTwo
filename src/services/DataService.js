@@ -2,14 +2,15 @@ import http from "../http-common";
 
 class DataService {
   getAll() {
-    return http.get("/pokemon?limit=100000&offset=0");
+    // to all, change limit to 100000
+    return http.get("/pokemon?limit=36&offset=0");
   }
 
-  getById(id) {
+  getOneById(id) {
     return http.get(`/pokemon/${id}`);
   }
 
-  getByName(name) {
+  getOneByName(name) {
     return http.get(`/pokemon/${name}`);
   }
 

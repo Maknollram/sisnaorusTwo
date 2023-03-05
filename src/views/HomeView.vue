@@ -23,45 +23,27 @@ const listFiltered = computed(() => {
 onMounted(() => {
   store.dispatch("listNames");
 });
-
-// export default {
-//   name: "HomeView",
-//   components: {
-//     HelloWorld,
-//   },
-//   setup() {
-//     let pokemons = reactive({});
-
-//     onMounted(() => {
-//       DataService.getAll()
-//         .then((res) => (pokemons = res.data.results))
-//         .catch((e) => console.log(e));
-//     });
-//   },
-// };
 </script>
 
 <template>
-  <v-card class="mx-auto">
-    <v-container fluid>
-      <v-row>
-        <v-col cols="12">
-          <v-text-field
-            v-model="search"
-            append-inner-icon="mdi-search"
-            variant="solo"
-            clear-icon="mdi-close-circle"
-            clearable
-            label="Pesquisar"
-            type="text"
-          ></v-text-field>
-        </v-col>
-      </v-row>
-      <v-row dense>
-        <ListPokemons :listNames="listFiltered" />
-      </v-row>
-    </v-container>
-  </v-card>
+  <v-container fluid>
+    <v-row>
+      <v-col cols="12">
+        <v-text-field
+          v-model="search"
+          append-inner-icon="mdi-search"
+          variant="solo"
+          clear-icon="mdi-close-circle"
+          clearable
+          label="Pesquisar"
+          type="text"
+        ></v-text-field>
+      </v-col>
+    </v-row>
+    <v-row dense>
+      <ListPokemons :listNames="listFiltered" />
+    </v-row>
+  </v-container>
 </template>
 
 <style></style>
