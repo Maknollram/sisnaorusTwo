@@ -6,7 +6,7 @@ const store = useStore();
 
 const imgUrl = ref(store.getters.getImgUrl);
 
-const onePokemonData = defineProps(["pokeData"])
+const onePokemonData = defineProps(["pokeData", "loading"])
 
 const dialogEnabler = computed(() => {
   return store.getters.getDialogPokemon;
@@ -15,17 +15,27 @@ const dialogEnabler = computed(() => {
 const closeDialog = () => {
   store.commit('SET_DIALOG_POKEMON', false)
 }
-
 </script>
 <template>
   <v-dialog
     v-model="dialogEnabler"
+    persistent
     max-width="600"
     min-width="200"
   >
-    <v-card>
+    <v-overlay
+    v-if="onePokemonData.loading"
+      class="align-center justify-center"
+    >
+      <v-progress-circular
+        color="primary"
+        indeterminate
+        size="64"
+      ></v-progress-circular>
+    </v-overlay>
+    <v-card v-else>
       <v-btn color="primary" icon size="x-small" variant="text" @click="closeDialog"><v-icon>mdi-close</v-icon></v-btn>
-      <v-card-title class="text-center"> {{onePokemonData?.pokeData?.name}} </v-card-title>
+      <v-card-title class="text-center" style="text-transform: capitalize;"> {{onePokemonData?.pokeData?.name}} </v-card-title>
       <v-row justify="center">
         <v-col cols="5">
           <v-img :src="`${imgUrl}${onePokemonData?.pokeData?.id}.png`"> </v-img>
@@ -62,6 +72,7 @@ const closeDialog = () => {
             <v-timeline-item
               dot-color="yellow"
               size="x-small"
+              v-if="onePokemonData.pokeData.base_experience !== null"
             >
               <div class="mb-4">
                 <div>

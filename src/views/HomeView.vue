@@ -1,11 +1,12 @@
 <script setup>
-import { onMounted, reactive, ref, computed } from "vue";
+import { onMounted, ref, computed } from "vue";
 import ListPokemons from "../components/ListPokemons.vue";
 import { useStore } from "vuex";
 
 const store = useStore();
 
 let search = ref("");
+let loading = ref(false)
 
 const listNames = computed(() => {
   return store.getters.getNames;
@@ -21,12 +22,25 @@ const listFiltered = computed(() => {
 });
 
 onMounted(() => {
-  store.dispatch("listNames");
+  loading.value = true
+  store.dispatch("listNames").finally(() => {
+    loading.value = false
+  });
 });
 </script>
 
 <template>
-  <v-container fluid>
+  <v-overlay 
+    v-model="loading"
+    class="align-center justify-center"
+  >
+    <v-progress-circular
+      color="primary"
+      indeterminate
+      size="64"
+    ></v-progress-circular>
+  </v-overlay>
+  <v-container fluid v-if="!loading">
     <v-row>
       <v-col cols="12">
         <v-text-field

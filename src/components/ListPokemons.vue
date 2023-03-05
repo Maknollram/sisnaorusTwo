@@ -9,13 +9,18 @@ const store = useStore();
 
 const imgUrl = ref(store.getters.getImgUrl);
 
+let loadingPokemons = ref(false)
+
 const pokemonData = computed(() => {
   return store.getters.getPokemon;
 });
 
 const pokemonSelected = (pokemon) => {
+  loadingPokemons.value = true
   store.commit('SET_DIALOG_POKEMON', true)
-  store.dispatch("getOneByName", {name: pokemon.name})
+  store.dispatch("getOneByName", {name: pokemon.name}).finally(() => {
+    loadingPokemons.value = false
+  })
 }
 
 </script>
@@ -24,12 +29,12 @@ const pokemonSelected = (pokemon) => {
   <v-col cols="2" v-for="(pokemon, index) in pokemons.listNames" :key="index">
     <v-card class="cardMon" @click="pokemonSelected(pokemon)">
       <v-img :src="`${imgUrl}${pokemon?.url.split('/')[6]}.png`"> </v-img>
-      <v-card-title class="text-center pa-0">
+      <v-card-title class="text-center pa-0" style="text-transform: capitalize;">
         {{ pokemon?.name }}
       </v-card-title>
     </v-card>
   </v-col>
-  <PokeDialog :pokeData="pokemonData"/>
+  <PokeDialog :pokeData="pokemonData" :loading="loadingPokemons" />
   <!-- <v-dialog
     v-model="dialog"
     max-width="600"
