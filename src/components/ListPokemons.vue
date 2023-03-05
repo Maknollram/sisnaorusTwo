@@ -26,7 +26,7 @@ const pokemonSelected = (pokemon) => {
 </script>
 
 <template>
-  <v-col cols="2" v-for="(pokemon, index) in pokemons.listNames" :key="index">
+  <v-col cols="3" v-for="(pokemon, index) in pokemons.listNames" :key="index">
     <v-card class="cardMon" @click="pokemonSelected(pokemon)">
       <v-img :src="`${imgUrl}${pokemon?.url.split('/')[6]}.png`"> </v-img>
       <v-card-title class="text-center pa-0" style="text-transform: capitalize;">
@@ -35,62 +35,6 @@ const pokemonSelected = (pokemon) => {
     </v-card>
   </v-col>
   <PokeDialog :pokeData="pokemonData" :loading="loadingPokemons" />
-  <!-- <v-dialog
-    v-model="dialog"
-    max-width="600"
-    min-width="200"
-  >
-    <v-card>
-      <v-btn color="primary" icon size="x-small" variant="text" @click="dialog = false"><v-icon>mdi-close</v-icon></v-btn>
-      <v-card-title class="text-center"> {{pokemonData?.name}} </v-card-title>
-      <v-row justify="center">
-        <v-col cols="5">
-          <v-img :src="`${imgUrl}${pokemonData?.id}.png`"> </v-img>
-        </v-col>
-      </v-row>
-      <v-card-text>
-          <div class="font-weight-bold ms-1 mb-2">
-            Informations
-          </div>
-
-          <v-timeline density="compact" align="start">
-            <v-timeline-item
-              dot-color="deep-purple-lighten-1"
-              size="x-small"
-            >
-              <div class="mb-4">
-                <div>
-                  <strong>Weight:</strong>
-                  {{pokemonData?.weight}}
-                </div>
-              </div>
-            </v-timeline-item>
-            <v-timeline-item
-              dot-color="green"
-              size="x-small"
-            >
-              <div class="mb-4">
-                <div>
-                  <strong>Height:</strong>
-                  {{pokemonData?.height}}
-                </div>
-              </div>
-            </v-timeline-item>
-            <v-timeline-item
-              dot-color="yellow"
-              size="x-small"
-            >
-              <div class="mb-4">
-                <div>
-                  <strong>XP:</strong>
-                  {{pokemonData?.base_experience}}
-                </div>
-              </div>
-            </v-timeline-item>
-          </v-timeline>
-        </v-card-text>
-    </v-card>
-  </v-dialog> -->
 </template>
 
 <style>

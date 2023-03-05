@@ -21,16 +21,20 @@ watch(group, (newGroup) => {
         variant="text"
         @click.stop="drawer = !drawer"
       ></v-app-bar-nav-icon>
+      <v-list-item
+        prepend-avatar="../src/assets/img/pikachu.svg"
+        nav
+      >
+      </v-list-item>
+      <v-toolbar-title>PokeVite</v-toolbar-title>
 
-      <v-toolbar-title>My files</v-toolbar-title>
-
-      <v-spacer></v-spacer>
+      <!-- <v-spacer></v-spacer>
 
       <v-btn variant="text" icon="mdi-magnify"></v-btn>
 
       <v-btn variant="text" icon="mdi-filter"></v-btn>
 
-      <v-btn variant="text" icon="mdi-dots-vertical"></v-btn>
+      <v-btn variant="text" icon="mdi-dots-vertical"></v-btn> -->
     </v-app-bar>
 
     <v-navigation-drawer v-model="drawer" location="bottom" temporary>

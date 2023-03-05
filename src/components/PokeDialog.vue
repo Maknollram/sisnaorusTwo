@@ -43,7 +43,7 @@ const closeDialog = () => {
       </v-row>
       <v-card-text>
           <div class="font-weight-bold ms-1 mb-2">
-            Informations
+            Informações
           </div>
 
           <v-timeline density="compact" align="start">
@@ -53,8 +53,8 @@ const closeDialog = () => {
             >
               <div class="mb-4">
                 <div>
-                  <strong>Weight:</strong>
-                  {{onePokemonData?.pokeData?.weight}}
+                  <strong>Peso:</strong>
+                  {{onePokemonData?.pokeData?.weight}} Kg
                 </div>
               </div>
             </v-timeline-item>
@@ -64,8 +64,8 @@ const closeDialog = () => {
             >
               <div class="mb-4">
                 <div>
-                  <strong>Height:</strong>
-                  {{onePokemonData?.pokeData?.height}}
+                  <strong>Tamanho:</strong>
+                  {{onePokemonData?.pokeData?.height / 10}} m
                 </div>
               </div>
             </v-timeline-item>
