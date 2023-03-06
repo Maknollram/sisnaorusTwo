@@ -28,11 +28,11 @@ npm run dev
 npm run build
 ```
 
-### Used 
-[PokéAPI] (https://pokeapi.co/)
-[Vite] (https://vitejs.dev/)
-[Vue 3] (https://vuejs.org/)
-[Vuetify] (https://vuetifyjs.com/en/)
-[Vuex] (https://vuex.vuejs.org/)
-[Vue Router] (https://router.vuejs.org/)
-[Axios] (https://github.com/axios/axios)
+# Used 
+- [PokéAPI] (https://pokeapi.co/)
+- [Vite] (https://vitejs.dev/)
+- [Vue3] (https://vuejs.org/)
+- [Vuetify] (https://vuetifyjs.com/en/)
+- [Vuex] (https://vuex.vuejs.org/)
+- [Vue-Router] (https://router.vuejs.org/)
+- [Axios] (https://github.com/axios/axios)
