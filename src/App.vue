@@ -22,7 +22,7 @@ watch(group, (newGroup) => {
         @click.stop="drawer = !drawer"
       ></v-app-bar-nav-icon>
       <v-list-item
-        prepend-avatar="../src/assets/img/pikachu.svg"
+        prepend-avatar="https://raw.githubusercontent.com/Maknollram/pokevite/8c3dd6d1cd3566a9dae9670d6c460b16477c4e23/src/assets/img/pikachu.svg"
         nav
       >
       </v-list-item>

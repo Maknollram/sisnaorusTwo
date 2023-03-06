@@ -1,11 +1,11 @@
 <script setup>
 import { reactive } from "vue";
   const infos = reactive([
-    {name: 'PokéAPI', color: 'yellow', url: 'https://pokeapi.co/'},
+    {name: 'PokéAPI', color: 'red', url: 'https://pokeapi.co/'},
     {name: 'Vite', color: 'purple', url: 'https://vitejs.dev/'},
     {name: 'Vue 3', color: 'green', url: 'https://vuejs.org/'},
     {name: 'Vuetify', color: 'blue', url: 'https://vuetifyjs.com/en/'},
-    {name: 'Vuex', color: 'red', url: 'https://vuex.vuejs.org/'},
+    {name: 'Pinia', color: 'yellow', url: 'https://pinia.vuejs.org/'},
     {name: 'Vue Router', color: 'orange', url: 'https://router.vuejs.org/'},
     {name: 'Axios', color: 'black', url: 'https://github.com/axios/axios'},
   ])
@@ -20,7 +20,7 @@ import { reactive } from "vue";
       <v-card width="600" elevation="20">
         <v-img
           height="200"
-          src="../src/assets/img/pokes.jpg"
+          src="https://github.com/Maknollram/pokevite/blob/master/src/assets/img/pokes.jpg?raw=true"
           cover
           class="text-white"
         ></v-img>

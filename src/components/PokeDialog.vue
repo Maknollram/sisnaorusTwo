@@ -1,20 +1,16 @@
 <script setup>
 import { ref, computed } from "vue";
-import { useStore } from "vuex";
+import { usePokemonStore } from "../store/pokemons";
 
-const store = useStore();
+const store = usePokemonStore();
 
-const imgUrl = ref(store.getters.getImgUrl);
+const imgUrl = ref(store.imgUrl);
 
 const onePokemonData = defineProps(["pokeData", "loading"])
 
 const dialogEnabler = computed(() => {
-  return store.getters.getDialogPokemon;
+  return store.dialogPokemon;
 });
-
-const closeDialog = () => {
-  store.commit('SET_DIALOG_POKEMON', false)
-}
 </script>
 <template>
   <v-dialog
@@ -34,7 +30,7 @@ const closeDialog = () => {
       ></v-progress-circular>
     </v-overlay>
     <v-card v-else>
-      <v-btn color="primary" icon size="x-small" variant="text" @click="closeDialog"><v-icon>mdi-close</v-icon></v-btn>
+      <v-btn color="primary" icon size="x-small" variant="text" @click="store.setDialogPokemon(false)"><v-icon>mdi-close</v-icon></v-btn>
       <v-card-title class="text-center" style="text-transform: capitalize;"> {{onePokemonData?.pokeData?.name}} </v-card-title>
       <v-row justify="center">
         <v-col cols="5">

@@ -1,24 +1,24 @@
 <script setup>
 import { ref, computed } from "vue";
-import { useStore } from "vuex";
+import { usePokemonStore } from "../store/pokemons";
 import PokeDialog from "../components/PokeDialog.vue";
 
 const pokemons = defineProps(["listNames"]);
 
-const store = useStore();
+const store = usePokemonStore();
 
-const imgUrl = ref(store.getters.getImgUrl);
+const imgUrl = ref(store.imgUrl);
 
 let loadingPokemons = ref(false)
 
 const pokemonData = computed(() => {
-  return store.getters.getPokemon;
+  return store.pokemon;
 });
 
 const pokemonSelected = (pokemon) => {
   loadingPokemons.value = true
-  store.commit('SET_DIALOG_POKEMON', true)
-  store.dispatch("getOneByName", {name: pokemon.name}).finally(() => {
+  store.setDialogPokemon(true)
+  store.getOneByName({name: pokemon.name}).finally(() => {
     loadingPokemons.value = false
   })
 }

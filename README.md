@@ -33,6 +33,6 @@ npm run build
 - [Vite] (https://vitejs.dev/)
 - [Vue3] (https://vuejs.org/)
 - [Vuetify] (https://vuetifyjs.com/en/)
-- [Vuex] (https://vuex.vuejs.org/)
+- [Pinia] (https://pinia.vuejs.org/)
 - [Vue-Router] (https://router.vuejs.org/)
 - [Axios] (https://github.com/axios/axios)

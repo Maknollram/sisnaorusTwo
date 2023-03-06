@@ -1,15 +1,15 @@
 <script setup>
 import { onMounted, ref, computed } from "vue";
 import ListPokemons from "../components/ListPokemons.vue";
-import { useStore } from "vuex";
+import { usePokemonStore } from "../store/pokemons";
 
-const store = useStore();
+const store = usePokemonStore();
 
 let search = ref("");
 let loading = ref(false)
 
 const listNames = computed(() => {
-  return store.getters.getNames;
+  return store.names;
 });
 
 const listFiltered = computed(() => {
@@ -23,7 +23,7 @@ const listFiltered = computed(() => {
 
 onMounted(() => {
   loading.value = true
-  store.dispatch("listNames").finally(() => {
+  store.listNames().finally(() => {
     loading.value = false
   });
 });
