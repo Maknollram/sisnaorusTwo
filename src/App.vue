@@ -26,7 +26,7 @@ watch(group, (newGroup) => {
         nav
       >
       </v-list-item>
-      <v-toolbar-title>PokeVite</v-toolbar-title>
+      <v-toolbar-title>SISNAORUS</v-toolbar-title>
 
       <!-- <v-spacer></v-spacer>
 
