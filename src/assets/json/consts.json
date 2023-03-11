@@ -1,0 +1,8 @@
+{
+  "toastMessages": {
+    "trainer": "Welcome trainer !!!",
+    "catch": "Gotta Catch 'Em All !!!",
+    "list": "Cannot get Pokemon list!",
+    "pokemon": "Cannot get Pokemon data!"
+  }
+}
